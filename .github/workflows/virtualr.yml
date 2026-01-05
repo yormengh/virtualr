@@ -2,7 +2,8 @@ name: Docker Workflow
 
 on:
   push:
-  - branch: main
+    branches:
+      - main
   workflow_dispatch: 
 
 env:
@@ -36,5 +37,5 @@ jobs:
       
       - name: Docker Run
         run: |
-          docker run -d -p 8080:80 ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+          docker run -d -p 8081:8080 ${{ env.CONTAINER_REGISTRY }}/${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
           sleep 300s
