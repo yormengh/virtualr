@@ -9,9 +9,9 @@ jobs:
     strategy: 
       matrix: 
         os: [ubuntu-latest, ubuntu-20.04, windows-latest]
-        images: [virtualr, restaurant-app]
+        images: [hello-world, alpine]
         exclude: 
-          - images: restaurant-app
+          - images: alpine
             os: windows-latest
     runs-on: ${{ matrix.os }}
     steps: 
@@ -19,4 +19,4 @@ jobs:
         run: docker info
 
       - name: Run Images on ${{ matrix.os }}
-        run: docker run ${{ matrix.images }} 
+        run: docker run ${{ matrix.images }}
